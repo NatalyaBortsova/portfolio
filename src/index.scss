@@ -1,0 +1,109 @@
+@import './App.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font: 300 11px/1.4 'Helvetica Neue', sans-serif;
+  color: #444;
+  overflow: hidden;
+  display: block;
+  background-color: #e6eaec;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.container-animate {
+  width: 100%;
+  will-change: contents;
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  transform-style: preserve-3d;
+  animation: fadeIn 1s forwards;
+  animation-delay: 1s;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '<h1>';
+    font-family: "La Belle Aurore", sans-serif;
+    color: $primary-color;
+    opacity: 0.6;
+    font-size: 18px;
+    top: 11px;
+    left: -40px;
+  }
+
+  &::after {
+    content: '<h1/>';
+    left: auto;
+  }
+
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &::after,
+    &::before {
+      top: 7px;
+    }
+  }
+  @media screen and (max-width: 575px) {
+    &::after,
+    &::before {
+     display: none;
+    }
+  }
+}
+
+.description {
+  width: 70%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  animation: fadeIn 1s 1.8s backwards;
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    line-height: 1.2;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

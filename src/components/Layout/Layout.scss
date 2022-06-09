@@ -1,0 +1,28 @@
+@import '../../App.scss';
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.tags {
+    color: $primary-color;
+    position: absolute;
+    opacity: 0.6;
+    bottom: 40px;
+    left: 120px;
+    font-size: 18px;
+    font-family: "La Belle Aurore", sans-serif;
+    &.top-tag {
+        bottom: auto;
+        top: 35px;
+    }
+    &.bottom-tag-html {
+        bottom: -30px;
+        left: -33px;
+    }
+    @media screen and (max-width: 575px) {
+        display: none;
+    }
+}

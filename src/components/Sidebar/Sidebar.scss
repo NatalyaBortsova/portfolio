@@ -1,0 +1,156 @@
+@import '../../App.scss';
+
+.nav {
+    padding: 20px 0;
+    background-color: #abaab3;
+    width: 80px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: block;
+    min-height: 500px;
+    transition: transform 0.3s ease-in-out;
+
+    @media screen and (max-width: 992px) {
+        transform: translateX(-100%);
+    }
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    &__logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 325px;
+    }
+
+    &__item {
+        display: block;
+        position: relative;
+        padding: 20px 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: $primary-color;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease 0s;
+        }
+
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+
+            svg {
+                opacity: 0;
+            }
+        }
+
+        &:first-child {
+            &::after {
+                content: "HOME";
+            }
+        }
+
+        &:nth-child(2) {
+            &::after {
+                content: "ABOUT";
+            }
+        }
+
+        &:nth-child(3) {
+            &::after {
+                content: "PROJECTS";
+            }
+        }
+
+        &:last-child {
+            &::after {
+                content: "CONTACT";
+            }
+        }
+
+        svg {
+            font-size: 22px;
+            transition: color 0.3s ease 0s;
+        }
+
+        &.active {
+            svg {
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.burger {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: transparent;
+    background-color: transparent;
+    outline: none;
+    width: 30px;
+    height: 30px;
+    color: $primary-color;
+    font-size: 20px;
+    display: none;
+    z-index: 10;
+
+    @media screen and (max-width: 992px) {
+        display: block;
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__item {
+        list-style: none;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__link {
+        padding: 10px;
+        display: block;
+        font-size: 20px;
+
+        svg {
+            transition: color 0.3s ease 0s;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}
